@@ -308,7 +308,7 @@
 
             return (
                 <div className="flex-grow flex flex-col overflow-hidden">
-                    <div ref={chatContainerRef} className="flex flex-col-reverse flex-1 overflow-y-auto space-y-3 p-2">
+                    <div ref={chatContainerRef} className="flex flex-col-reverse flex-grow h-0 overflow-y-auto space-y-3 p-2">
                         {
                         [...messages].reverse().map(message => {
                             const sender = usersById[message.userID];
@@ -1368,7 +1368,7 @@
                 
                 return (
                     <div className="h-full flex flex-col relative">
-                        <div id="main-app-scroller" className="flex-grow overflow-y-auto" style={{ height: '100vh' }}>
+                        <div id="main-app-scroller" className="flex-grow overflow-y-auto" >
                             <div key={viewStack.length} className="view-container-animate h-full">
                                 {mainContent}
                             </div>
@@ -1388,7 +1388,7 @@
 
             return (
                 <div className="bg-slate-100 min-h-screen flex justify-center">
-                    <div className="w-full max-w-sm bg-white shadow-lg flex flex-col" style={{ height: '100vh', maxHeight: '100vh', overflow: 'hidden' }}>
+                    <div className="w-full max-w-sm bg-white shadow-lg flex flex-col h-screen overflow-hidden">
                         {renderView()}
                     </div>
                     <Toast message={toast.message} show={toast.show} />
