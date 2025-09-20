@@ -430,7 +430,7 @@
                             <div className="space-y-3 pt-2 text-[#2E2E2E]">
                                 <div className="flex items-center gap-3">
                                     {event.isTimeFlexible ? (
-                                        <><Icons.calendar className="w-5 h-5 text-salviagron" /><span className="font-semibold text-salviagron">Tid & datum bestäms i chatten</span></>
+                                        <><Icons.calendar className="w-5 h-5 text-salviagron" /><span className="font-semibold text-salviagron">{formatDateTime(event.dateTime, event.isTimeFlexible)}</span></>
                                     ) : (
                                         <><Icons.clock className="w-5 h-5 text-[#2E2E2E]/60" /><span>{formatDateTime(event.dateTime, event.isTimeFlexible)}</span></>
                                     )}
@@ -505,7 +505,7 @@
                 "Storgatan, Göteborg", "Engelbrektsgatan, Göteborg", "Övre Husargatan, Göteborg",
                 "Östra Larmgatan, Göteborg", "Lilla Bommen, Göteborg", "Packhusplatsen, Göteborg",
                 "Norra Hamngatan, Göteborg", "Kaserntorget, Göteborg", "Hedbergsgatan, Göteborg",
-                "Kapellplatsen, Göteborg","Stenugnsundsbaden, Stenugnsund"
+                "Kapellplatsen, Göteborg"
             ];
 
             const handleLocationChange = (e) => {
@@ -575,7 +575,7 @@
                 }
 
                 const finalTime = isFlexibleTime ? null : time;
-                const dateTime = finalTime ? combineDateAndTime(date, finalTime) : date;
+                const dateTime = finalTime ? combineDateAndTime(date, finalTime) : `${date}T00:00:00`;
 
                 const eventData = {
                     title, description, category, location, dateTime, 
@@ -795,7 +795,7 @@
                 }
 
                 const finalTime = isFlexibleTime ? null : time;
-                const dateTime = finalTime ? combineDateAndTime(date, finalTime) : date;
+                const dateTime = finalTime ? combineDateAndTime(date, finalTime) : `${date}T00:00:00`;
 
                 const updatedEvent = {
                     ...eventToEdit,
