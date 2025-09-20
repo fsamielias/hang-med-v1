@@ -353,7 +353,7 @@
 
             return (
                 <div className="flex-grow flex flex-col overflow-hidden">
-                    <div ref={chatContainerRef} className="flex-1 overflow-y-auto space-y-3 p-2">
+                    <div ref={chatContainerRef} className="flex-1 overflow-y-auto space-y-3 p-2 flex flex-col">
                         <div className="flex-grow"></div>
                         {messages.map(message => {
                             const sender = usersById[message.userID];
@@ -1610,4 +1610,5 @@
     </script>
 </body>
 </html>
+"
 
